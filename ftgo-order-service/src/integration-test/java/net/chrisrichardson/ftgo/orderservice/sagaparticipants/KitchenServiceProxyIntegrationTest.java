@@ -1,9 +1,9 @@
 package net.chrisrichardson.ftgo.orderservice.sagaparticipants;
 
-import io.eventuate.tram.commands.common.ChannelMapping;
-import io.eventuate.tram.commands.common.DefaultChannelMapping;
 import io.eventuate.tram.commands.producer.TramCommandProducerConfiguration;
 import io.eventuate.tram.inmemory.TramInMemoryConfiguration;
+import io.eventuate.tram.messaging.common.ChannelMapping;
+import io.eventuate.tram.messaging.common.DefaultChannelMapping;
 import io.eventuate.tram.sagas.orchestration.SagaCommandProducer;
 import io.eventuate.tram.springcloudcontractsupport.EventuateContractVerifierConfiguration;
 import io.eventuate.tram.springcloudcontractsupport.EventuateTramRoutesConfigurer;
@@ -52,12 +52,6 @@ public class KitchenServiceProxyIntegrationTest {
   @Import({TramCommandProducerConfiguration.class,
           TramInMemoryConfiguration.class, EventuateContractVerifierConfiguration.class})
   public static class TestConfiguration {
-
-    @Bean
-    public ChannelMapping channelMapping() {
-      return new DefaultChannelMapping.DefaultChannelMappingBuilder().build();
-    }
-
 
     /// TramSagaInMemoryConfiguration
 
